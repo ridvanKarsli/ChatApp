@@ -7,23 +7,47 @@
 
 import UIKit
 
-class ClubsViewController: UIViewController {
-
+class ClubsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var clubsTableView: UITableView!
+    
+    var clubsArray = ["club1","club2","club3"]
+    var clubsChildName : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "ClubsCell", bundle: nil)
+        clubsTableView.register(nib, forCellReuseIdentifier: "CellID")
 
-        // Do any additional setup after loading the view.
+        clubsTableView.delegate = self
+        clubsTableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return clubsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID") as! ClubsCellVC
+        cell.clubsNameText.text = clubsArray[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        clubsChildName = clubsArray[indexPath.row]
+        self.performSegue(withIdentifier: "toClubChatVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toClubChatVC"{
+            if let secondVC = segue.destination as? ClubsChatVC{
+                secondVC.selectedChildName = clubsChildName
+            }
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+     
 }

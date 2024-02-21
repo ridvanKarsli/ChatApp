@@ -8,6 +8,11 @@
 import UIKit
 
 class ClubsCellVC: UITableViewCell {
+    
+    @IBOutlet weak var clubsImage: UIImageView!
+    
+    @IBOutlet weak var clubsNameText: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

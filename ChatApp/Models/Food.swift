@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class Food{
+    var name = ""
+    var price = 0.0
+    
+}

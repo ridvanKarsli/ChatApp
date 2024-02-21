@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class Chat {
+    var sender = ""
+    var messageBody = ""
+}

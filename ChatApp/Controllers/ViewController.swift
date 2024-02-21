@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseCore
 
 class ViewController: UIViewController {
@@ -16,6 +17,16 @@ class ViewController: UIViewController {
         
     }
 
+    
+    
+    @IBAction func signInClicked(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func signUpClicked(_ sender: UIButton) {
+        
+    }
 
+    
 }
 

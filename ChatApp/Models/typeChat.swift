@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class typeChat{
+    var typeName : String = ""
+    var imageName : String = ""
+}
+
+
+
+
+

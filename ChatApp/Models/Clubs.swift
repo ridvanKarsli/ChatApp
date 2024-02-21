@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class Clubs{
+    var clubsName = ""
+    var sender = ""
+    var messageBody = ""
+}
